@@ -130,8 +130,7 @@ public final class Constants {
         //How fast will the bot go in auto
         //NYOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM
         public static final double kMaxSpeedMetersPerSecond = 10;
-        public static final double kMaxAccelerationMetersPerSecondSquared = 5;
-        
+        public static final double kMaxAccelerationMetersPerSecondSquared = 0.5; //Drivetest Speed
         public static final double kMaxAngularSpeedRadiansPerSecond = 1; //Changed from Math.PI for testing
         public static final double kMaxAngularSpeedRadiansPerSecondSquared = 1; //Changed from Math.PI for testing
     
