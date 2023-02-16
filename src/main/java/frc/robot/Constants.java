@@ -130,9 +130,15 @@ public final class Constants {
             // Claw/gripper positions
             public static final double gripperOpenPosition = 0; //The open position of the gripper
             public static final double gripperClosedPosition = 0; //The closed position of the gripper
+            
+            // Arm/Gripper Motors Gear Ratio
+            public static final double shoulderGearRatio = (125 / 1.0);
+            public static final double elbowGearRatio = (125 / 1.0);
+            public static final double wristGearRatio = (125 / 1.0);
+            public static final double gripperGearRatio = (125 / 1.0);
 
             // PID values for the Shoulder
-            public static final double shoulderKP = 0; //P value for shoulder motor FIXME BY TUNING
+            public static final double shoulderKP = 0.0005; //P value for shoulder motor FIXME BY TUNING
             public static final double shoulderKI = 0; //I value for shoulder motor FIXME BY TUNING
             public static final double shoulderKD = 0; //D value for shoulder motor FIXME BY TUNING
             
@@ -148,7 +154,7 @@ public final class Constants {
             public static final double wristKD = 0.00000; //D value for wrist motor FIXME BY TUNING
             
             // PID values for the gripper
-            public static final double gripperKP = 0; //P value for gripper motor FIXME BY TUNING
+            public static final double gripperKP = 0.0001; //P value for gripper motor FIXME BY TUNING
             public static final double gripperKI = 0; //I value for gripper motor FIXME BY TUNING
             public static final double gripperKD = 0; //D value for gripper motor FIXME BY TUNING
         }
@@ -190,7 +196,7 @@ public final class Constants {
         //How fast will the bot go in auto
         //NYOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM
         public static final double kMaxSpeedMetersPerSecond = 10;
-        public static final double kMaxAccelerationMetersPerSecondSquared = 5;
+        public static final double kMaxAccelerationMetersPerSecondSquared = 0.5;
         
         public static final double kMaxAngularSpeedRadiansPerSecond = 1; //Changed from Math.PI for testing
         public static final double kMaxAngularSpeedRadiansPerSecondSquared = 1; //Changed from Math.PI for testing
