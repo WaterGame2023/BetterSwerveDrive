@@ -135,7 +135,7 @@ public final class Constants {
             public static final double shoulderGearRatio = (125 / 1.0);
             public static final double elbowGearRatio = (125 / 1.0);
             public static final double wristGearRatio = (125 / 1.0);
-            public static final double gripperGearRatio = (125 / 1.0);
+            //There isn't a gear ratio for the claw according to Daryl.
 
             // PID values for the Shoulder
             public static final double shoulderKP = 0.0005; //P value for shoulder motor FIXME BY TUNING
