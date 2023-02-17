@@ -11,7 +11,6 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.Constants;
 import frc.robot.Constants.Swerve.Arm;
 
 import com.revrobotics.CANSparkMax;
@@ -38,13 +37,13 @@ public final void init() {
   zeroAllEncoders();
 
   //Set open and closed loop ramp rates
-  shoulderFalcon.configOpenloopRamp(0);
+  shoulderFalcon.configOpenloopRamp(6);
   shoulderFalcon.configClosedloopRamp(0);
-  elbowMotor.setOpenLoopRampRate(0);
+  elbowMotor.setOpenLoopRampRate(0.1);
   elbowMotor.setClosedLoopRampRate(0);
-  wristMotor.setOpenLoopRampRate(0);
+  wristMotor.setOpenLoopRampRate(0.1);
   wristMotor.setClosedLoopRampRate(0);
-  gripperFalcon.configOpenloopRamp(0);
+  gripperFalcon.configOpenloopRamp(3);
   gripperFalcon.configClosedloopRamp(0);
 
   //Set the encoder values to read every 30 ms

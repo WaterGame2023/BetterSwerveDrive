@@ -35,6 +35,10 @@ public class TeleopSwerve extends CommandBase {
         this.openLoop = openLoop;
     }
 
+    public TeleopSwerve(frc.robot.Constants.Swerve swerveSubsystem2, Joystick driver, int translationAxis2,
+            int strafeAxis2, int rotationAxis2, boolean fieldRelative2, boolean openLoop2) {
+    }
+
     @Override
     public void execute() {
         double yAxis = -controller.getRawAxis(translationAxis);  //Flips the controller values as needed and gets the value of each axis

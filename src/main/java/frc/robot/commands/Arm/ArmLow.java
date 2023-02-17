@@ -26,15 +26,15 @@ public class ArmLow extends CommandBase {
           addRequirements(m_armSubsystem);
 
           this.shoulderPIDController = new PIDController(Arm.shoulderKP, Arm.shoulderKI, Arm.shoulderKD); //Input the PID values for the shoulder
-          shoulderPIDController.setTolerance(.1); //Sets the tolerance for the sholder PID controller
+          shoulderPIDController.setTolerance(0.1); //Sets the tolerance for the sholder PID controller
           shoulderPIDController.setSetpoint(Arm.shoulderLowPosition); //Sets the setpoint for the shoulder PID controller
 
           this.elbowPIDController = new PIDController(Arm.elbowKP, Arm.elbowKI, Arm.elbowKD); //Input the PID values for the elbow
-          elbowPIDController.setTolerance(.1); //Sets the tolerance for the elbow PID controller
+          elbowPIDController.setTolerance(0.1); //Sets the tolerance for the elbow PID controller
           elbowPIDController.setSetpoint(Arm.elbowLowPosition); //Sets the setpoint for the elbow PID controller
 
           this.wristPIDController = new PIDController(Arm.wristKP, Arm.wristKI, Arm.wristKD); //Input the PID values for the wrist
-          wristPIDController.setTolerance(.1); //Sets the tolerance for the wrist PID controller
+          wristPIDController.setTolerance(0.1); //Sets the tolerance for the wrist PID controller
           wristPIDController.setSetpoint(Arm.wristLowPosition); //Sets the setpoint for the wrist PID controller
     }
     
@@ -50,7 +50,7 @@ public class ArmLow extends CommandBase {
   public void execute() {
     double shoulderSpeed = shoulderPIDController.calculate(m_armSubsystem.getShoulderAngle()); //Calculates the speed for the shoulder
     double elbowSpeed = elbowPIDController.calculate(m_armSubsystem.getElbowAngle()); //Calculates the speed for the elbow
-    double wristSpeed = wristPIDController.calculate(m_armSubsystem.getWristAngle());   
+    double wristSpeed = wristPIDController.calculate(m_armSubsystem.getWristAngle()); //Calculates the speed for wrist
 
     m_armSubsystem.setSpeeds(shoulderSpeed, elbowSpeed, wristSpeed); //Sets the speeds for the arm motors
 

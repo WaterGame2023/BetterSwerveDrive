@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-
+import frc.robot.Constants.Swerve;
 import frc.robot.autos.*;
 import frc.robot.commands.*;
 import frc.robot.commands.Arm.*;
@@ -25,7 +25,7 @@ import frc.robot.subsystems.*;
  */
 public class RobotContainer {
   // Creates new joystick object for the driver on port 0
-  //private final Joystick driver = new Joystick(0);
+  private final Joystick driver = new Joystick(0);
   private final Joystick arm = new Joystick(1);
 
   // Creates the Axis variables mapped to various joysticks on the gamepad
@@ -34,11 +34,11 @@ public class RobotContainer {
   private final int rotationAxis = XboxController.Axis.kRightX.value; //X axis on the right joystick, turns the robot
 
   // Creates button mappings on the controller
-  //private final JoystickButton zeroGyro = new JoystickButton(driver, XboxController.Button.kY.value); // Y button on the controller to zero the gyro
+  private final JoystickButton zeroGyro = new JoystickButton(driver, XboxController.Button.kY.value); // Y button on the controller to zero the gyro
   private final JoystickButton armUpAndOut = new JoystickButton(arm, 2); // A button on the controller to move the arm up and out
   private final JoystickButton armDownAndOut = new JoystickButton(arm, 3); // A button on the controller to move the arm up and out
-  private final JoystickButton armStore = new JoystickButton(arm, 4); // A button on the controller to move the arm up and out
-  private final JoystickButton armMiddle = new JoystickButton(arm, 5); // A button on the controller to move the arm up and out
+  private final JoystickButton armStore = new JoystickButton(arm, 4); 
+  private final JoystickButton armMiddle = new JoystickButton(arm, 5);
   private final JoystickButton motorRelease = new JoystickButton(arm, 8);
   private final JoystickButton zeroArmEncoders = new JoystickButton(arm, 9);
   private final JoystickButton gripperOpen = new JoystickButton(arm, 6);
@@ -46,7 +46,7 @@ public class RobotContainer {
 
 
   // Define the Swerve subsystem as swerveSubsystem
-  //private final Swerve swerveSubsystem = new Swerve();
+  private final Swerve swerveSubsystem = new Swerve();
   private final ArmSubsystem armSubsystem = new ArmSubsystem();
 
   private final ArmHigh armHigh = new ArmHigh(armSubsystem);
@@ -62,7 +62,7 @@ public class RobotContainer {
   public RobotContainer() {
     boolean fieldRelative = true; // Do you want field oriented control?
     boolean openLoop = true; // Do you want acceleration on the robot
-    //swerveSubsystem.setDefaultCommand(new TeleopSwerve(swerveSubsystem, driver, translationAxis, strafeAxis, rotationAxis, fieldRelative, openLoop));  //Default command to drive the bot
+    Swerve.setDefaultCommand(new TeleopSwerve(swerveSubsystem, driver, translationAxis, strafeAxis, rotationAxis, fieldRelative, openLoop));  //Default command to drive the bot
     // Configure the button bindings
     configureButtonBindings();
 
@@ -79,7 +79,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
 
     //Drive Buttons
-    //zeroGyro.onTrue(new InstantCommand(() -> swerveSubsystem.zeroGyro()));
+    zeroGyro.onTrue(new InstantCommand(() -> swerveSubsystem.zeroGyro()));
     
     //Arm Buttons
     armUpAndOut.onTrue(armHigh);

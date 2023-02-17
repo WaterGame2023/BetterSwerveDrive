@@ -32,7 +32,7 @@ public class ArmHigh extends CommandBase  {
           elbowPIDController.setSetpoint(Arm.elbowHighPosition); //Sets the setpoint for the elbow PID controller
 
           this.wristPIDController = new PIDController(Arm.wristKP, Arm.wristKI, Arm.wristKD); //Input the PID values for the wrist
-          wristPIDController.setTolerance(.5); //Sets the tolerance for the wrist PID controller
+          wristPIDController.setTolerance(0.5); //Sets the tolerance for the wrist PID controller
           wristPIDController.setSetpoint(Arm.wristHighPosition); //Sets the setpoint for the wrist PID controller
     }
     
@@ -50,7 +50,7 @@ public class ArmHigh extends CommandBase  {
     double elbowSpeed = elbowPIDController.calculate(m_armSubsystem.getElbowAngle()); //Calculates the error for the elbow
     double wristSpeed = 1.5*wristPIDController.calculate(m_armSubsystem.getWristAngle()); //Calculates the error for the wrist
 
-    m_armSubsystem.setSpeeds(0, elbowSpeed, wristSpeed); //Sets the speeds for the elbow and wrist motors Shoulder speed set to 0 for testing purposes
+    m_armSubsystem.setSpeeds(shoulderSpeed, elbowSpeed, wristSpeed); //Sets the speeds for the elbow and wrist motors Shoulder speed set to 0 for testing purposes
 
     System.out.println("Shoulder Angle: " + m_armSubsystem.getShoulderAngle()); //Prints the shoulder angle to the console
     System.out.println("Elbow Angle: " + m_armSubsystem.getElbowAngle()); //Prints the elbow angle to the console

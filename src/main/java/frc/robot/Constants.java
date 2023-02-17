@@ -2,12 +2,14 @@ package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
+import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
 import frc.lib.util.SwerveModuleConstants;
+import frc.robot.commands.TeleopSwerve;
 
 public final class Constants {
     public static final double stickDeadband = 0.13; // He's dead Jim
@@ -187,6 +189,17 @@ public final class Constants {
             public static final double angleOffset = 72.158; //CANCoder Angle offset
             public static final SwerveModuleConstants constants = 
                 new SwerveModuleConstants(driveMotorID, angleMotorID, canCoderID, angleOffset); //Sets the constant values for the module
+        }
+
+        public static void setDefaultCommand(TeleopSwerve teleopSwerve) {
+        }
+
+        public Object zeroGyro() {
+            return null;
+        }
+
+        public Object resetOdometry(Pose2d initialPose) {
+            return null;
         }
 
     }
